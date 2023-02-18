@@ -1,33 +1,30 @@
 .outer{
-  color: red;
-  width: 60%;
+  width: 400px;
   text-align: center;
   margin:auto;
   
 }
 
 .textInput{
-  margin: 10px;
   display: flex; 
   flex-direction: column; 
-  
   
 }
 
 .inputField{
-  padding-top: 10px; 
+  height: 40px; 
   margin-top: 10px;
+  border-radius: 7px;
+  padding: 0 10px;
 }
 
 .heading{
-  margin: 1em 0 0.5em 0;
-	color: #343434;
-	font-weight: normal;
-	font-family: 'Ultra', sans-serif;   
-	font-size: 36px;
-	line-height: 42px;
-	text-transform: uppercase;
-	text-shadow: 0 2px white, 0 3px #777;
+  font-size: 40px;
+  font-weight: 500;
+  word-spacing: 3px;
+  line-height: 2em;
+  padding-top: 10px;
+  color: black;
   
 }
 
@@ -36,9 +33,98 @@
   height: 50px;
   background-color: black;
   color: white; 
+  margin-bottom: 100px;
 }
 
 .submitButton:hover{
   background-color: white;
   color: black; 
 }
+
+#inputCheckboxes{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 12px;
+  text-align: left;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: lightgray;
+  box-shadow: 5px 10px #888888;
+
+}
+
+.checkboxLabel{
+  padding-left: 30px;
+  color: #040720;
+}
+
+.checkboxInput{
+  padding-top: 30px;
+}
+
+
+input[type="checkbox"] {
+  /* Hide the default checkbox */
+  display: none;
+}
+
+label {
+  /* Style the label to look like a checkbox */
+  
+  position: relative;
+  padding-left: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 2px;
+  
+}
+
+/* Create the checkbox */
+label:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+}
+
+/* Style the checkbox when it's checked */
+input[type="checkbox"]:checked + label:before {
+  content: "\2714"; /* Unicode checkmark symbol */
+  
+  background-color: #ffffff;
+  /*ackground-color: */ /* Choose your own color */
+
+  height: 20px;
+  width: 20px
+}
+
+/* Style the checkbox when it's hovered */
+label:hover:before {
+  border-color: #666;
+}
+
+/* Style the label when the checkbox is disabled */
+input[type="checkbox"]:disabled + label {
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Style the checkmark when the checkbox is disabled */
+input[type="checkbox"]:disabled + label:before {
+  border-color: #ccc;
+  background-color: #f0f0f0;
+}
+
+.inputField::placeholder{
+  text-align: left;
+  padding-left: 10px;
+}
+

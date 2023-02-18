@@ -20,6 +20,7 @@ function App() {
   const [food, setFood] = useState(false);
   const [science, setScience] = useState(false);
   const [gaming, setGaming] = useState(false);
+  const [email, setEmail] = useState("");
   
   
   function handleSubmit(event) {
@@ -40,6 +41,7 @@ function App() {
       food: food,
       science: science,
       gaming: gaming,
+      email: email
     };
 
     console.log(data);
@@ -60,10 +62,12 @@ function App() {
   return (
     <div class="outer" >
       <h1 className="heading" class="heading">
-        Some heading
+        Some Heading
       </h1>
       <p className="description">
-        The description
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -99,54 +103,63 @@ function App() {
             className="inputField"
             onChange={(e) => setInterest3(e.target.value)}
           />
+
+          <input
+            type="email"
+            placeholder="Email"  
+            className="inputField"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
       </div>
 
-      <div className="inputCheckboxes" class= "display-7 m-3 rounded text-white bg-dark" >
-   
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="sport" name="sport" onChange={(e) => setSport(e.target.checked)}/>
-          <label htmlFor="sport">Sports</label>
+      <div className="inputCheckboxes" class= "display-7 rounded text-white" id="inputCheckboxes">
+        
+        <div>
+          <input className = "checkboxInput" type="checkbox" id="sport" name="sport" onChange={(e) => setSport(e.target.checked)}/>
+          <label className="checkboxLabel" htmlFor="sport">Sports</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="tech" name="tech" onChange={(e) => setTech(e.target.checked)}/>
-          <label htmlFor="tech">Technology</label>
+        <div>
+          <input className = "checkboxInput" type="checkbox" id="tech" name="tech" onChange={(e) => setTech(e.target.checked)}/>
+          <label className = "checkboxLabel"htmlFor="tech">Technology</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="finance" name="finance" onChange={(e) => setFinance(e.target.checked)}/>
-          <label htmlFor="finance">Finance</label>
+        <div >
+          <input className = "checkboxInput"type="checkbox" id="finance" name="finance" onChange={(e) => setFinance(e.target.checked)}/>
+          <label className="checkboxLabel" htmlFor="finance">Finance</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="politics" name="politics" onChange={(e) => setPolitics(e.target.checked)}/>
-          <label htmlFor="politics">Politics</label>
+        <div>
+          <input className = "checkboxInput"type="checkbox" id="politics" name="politics" onChange={(e) => setPolitics(e.target.checked)}/>
+          <label className="checkboxLabel"htmlFor="politics">Politics</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="entertainment" name="entertainment" onChange={(e) => setEntertainment(e.target.checked)}/>
-          <label htmlFor="entertainment">Entertainment</label>
+        <div >
+          <input className = "checkboxInput"type="checkbox" id="entertainment" name="entertainment" onChange={(e) => setEntertainment(e.target.checked)}/>
+          <label className="checkboxLabel"htmlFor="entertainment">Entertainment</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="travel" name="travel" onChange={(e) => setTravel(e.target.checked)}/>
-          <label htmlFor="travel">Travel</label>
+        <div>
+          <input className = "checkboxInput" type="checkbox" id="travel" name="travel" onChange={(e) => setTravel(e.target.checked)}/>
+          <label className="checkboxLabel"htmlFor="travel">Travel</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="music" name="music" onChange={(e) => setMusic(e.target.checked)}/>
-          <label htmlFor="music">Music</label>
+        <div>
+          <input className = "checkboxInput" type="checkbox" id="music" name="music" onChange={(e) => setMusic(e.target.checked)}/>
+          <label className="checkboxLabel" htmlFor="music">Music</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="food" name="food" onChange={(e) => setFood(e.target.checked)}/>
-          <label htmlFor="food">Food</label>
+        <div>
+          <input className = "checkboxInput"type="checkbox" id="food" name="food" onChange={(e) => setFood(e.target.checked)}/>
+          <label className="checkboxLabel" htmlFor="food">Food</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="science" name="science" onChange={(e) => setScience(e.target.checked)}/>
-          <label htmlFor="science">Science</label>
+        <div>
+          <input className = "checkboxInput"type="checkbox" id="science" name="science" onChange={(e) => setScience(e.target.checked)}/>
+          <label className="checkboxLabel" htmlFor="science">Science</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" id="gaming" name="gaming" onChange={(e) => setGaming(e.target.checked)}/>
-          <label htmlFor="gaming">Gaming</label>
+        <div>
+          <input className = "checkboxInput"type="checkbox" id="gaming" name="gaming" onChange={(e) => setGaming(e.target.checked)}/>
+          <label className="checkboxLabel" htmlFor="gaming">Gaming</label>
         </div>
-      
       </div>
-
       <input className="submitButton" type="submit" value="Submit"/>
+      </form>
+
+      <form>
 
       </form>
     </div>
