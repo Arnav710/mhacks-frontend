@@ -1,6 +1,9 @@
 
 import "./App.css";
 import { useState } from "react";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 
   const [location, setLocation] = useState("");
@@ -55,21 +58,25 @@ function App() {
   
 
   return (
-    <div>
-      <p className="heading">
+    <div class="outer" >
+      <h1 className="heading" class="heading">
         Some heading
-      </p>
+      </h1>
       <p className="description">
         The description
       </p>
 
       <form onSubmit={handleSubmit}>
-        <div className="textInput">
+        
+        <div class = "display-10 align-items-center" className="textInput" >
+        
           <input
+
             type="text"
             placeholder="Location"  
             className="inputField"
             onChange={(e) => setLocation(e.target.value)}
+        
           />
 
           <input
@@ -94,48 +101,58 @@ function App() {
           />
       </div>
 
-      <div className="inputCheckboxes">
+      <div className="inputCheckboxes" class= "display-7 m-3 rounded text-white bg-dark" >
    
-        <div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="sport" name="sport" onChange={(e) => setSport(e.target.checked)}/>
           <label htmlFor="sport">Sports</label>
-
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="tech" name="tech" onChange={(e) => setTech(e.target.checked)}/>
           <label htmlFor="tech">Technology</label>
-        
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="finance" name="finance" onChange={(e) => setFinance(e.target.checked)}/>
           <label htmlFor="finance">Finance</label>
-       
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="politics" name="politics" onChange={(e) => setPolitics(e.target.checked)}/>
           <label htmlFor="politics">Politics</label>
-       
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="entertainment" name="entertainment" onChange={(e) => setEntertainment(e.target.checked)}/>
           <label htmlFor="entertainment">Entertainment</label>
-        
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="travel" name="travel" onChange={(e) => setTravel(e.target.checked)}/>
           <label htmlFor="travel">Travel</label>
-        
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="music" name="music" onChange={(e) => setMusic(e.target.checked)}/>
           <label htmlFor="music">Music</label>
-       
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="food" name="food" onChange={(e) => setFood(e.target.checked)}/>
           <label htmlFor="food">Food</label>
-        
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="science" name="science" onChange={(e) => setScience(e.target.checked)}/>
           <label htmlFor="science">Science</label>
-
+        </div>
+        <div class="form-check form-check-inline">
           <input type="checkbox" id="gaming" name="gaming" onChange={(e) => setGaming(e.target.checked)}/>
           <label htmlFor="gaming">Gaming</label>
         </div>
       
       </div>
 
-      <input type="submit" value="Submit" />
+      <input className="submitButton" type="submit" value="Submit"/>
 
       </form>
     </div>
   );
 
 }
+
 
 export default App;
