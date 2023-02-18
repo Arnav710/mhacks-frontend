@@ -50,7 +50,7 @@ function App() {
       body: JSON.stringify(data),
     };
 
-    fetch("https://hackapi.rooty.dev/api/endpoint", requestOptions)
+    fetch("https://hackapi.rooty.dev/generate_feed", requestOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
