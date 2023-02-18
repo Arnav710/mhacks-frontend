@@ -3,6 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import jsonData from './outputData.json';
 
 function App() {
 
@@ -59,7 +60,30 @@ function App() {
   }
   
 
+  // creating a grid component with the help of a function
+  const Grid = ({ item }) => {
+    return (
+      <div className="grid-item"> 
+        <h5>{item.title}</h5>
+        <p>{item.summary}</p>
+        <a href={item.link}>Link</a>
+      </div>
+    );
+  };
+
+  // creating the grid container having 3 Grid components
+  const GridContainer = ({ items }) => {
+    return (
+      <div className="grid-container">
+        {items.map((item, index) => (
+          <Grid key={index} item={item} />
+        ))}
+      </div>
+    );
+  };
+
   return (
+  <div>
     <div class="outer" >
       <h1 className="heading" class="heading">
         Some Heading
@@ -67,7 +91,6 @@ function App() {
       <p className="description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -158,10 +181,17 @@ function App() {
       </div>
       <input className="submitButton" type="submit" value="Submit"/>
       </form>
+    </div>
 
-      <form>
+    <div>
+    {Object.keys(jsonData).map((category, index) => (
+      <div key={index}>
+        <h1 className="sub-topic">{category}</h1>
+        <GridContainer items={jsonData[category]} />
+      </div>
+    ))}
+    </div>
 
-      </form>
     </div>
   );
 

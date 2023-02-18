@@ -1,0 +1,37 @@
+{
+    "location": [
+        {
+            "name": "Hello world 1",
+            "link": "https://google.com",
+            "summary": "This is some random text 1"
+        },
+        {
+            "name": "Hello world 2",
+            "link": "https://yahoo.com",
+            "summary": "This is some random text 2"
+        },
+        {
+            "name": "Hello world 3",
+            "link": "https://bing.com",
+            "summary": "This is some random text 3"
+        }
+    ],
+
+    "technology": [
+        {
+            "name": "Hello world 1",
+            "link": "https://google.com",
+            "summary": "This is some random text 1"
+        },
+        {
+            "name": "Hello world 2",
+            "link": "https://yahoo.com",
+            "summary": "This is some random text 2"
+        },
+        {
+            "name": "Hello world 3",
+            "link": "https://bing.com",
+            "summary": "This is some random text 3"
+        }
+    ]
+}
