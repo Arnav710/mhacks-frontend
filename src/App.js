@@ -22,8 +22,9 @@ function App() {
   const [gaming, setGaming] = useState(false);
   const [email, setEmail] = useState("");
 
-  const [jsonData, setJsonData] = useState("");
+  const [jsonData, setJsonData] = useState({});
   const [displayResults, setDisplayResults] = useState(false);
+  const [displayLoading, setDisplayLoading] = useState(false);
 
 
   const handleSubmit = async (event) => {
@@ -55,26 +56,25 @@ function App() {
       body: JSON.stringify(data),
     };
 
+    setDisplayLoading(true);
+
     fetch("https://hackapi.rooty.dev/generate_feed", requestOptions)
       .then((response) => response.json())
       .then((data) => {
+        setDisplayLoading(false);
         setDisplayResults(true);
         setJsonData(data);
       })
       .then(() => {
-        // this is where we want to scroll automatically
-        setTimeout(function(){
-          console.log("hello");
-        }, 4000)
-        
+        console.log("hello")
       })
-      .catch((error) => console.error(error)
+      .catch((error) => {
+        console.error(error);
+        setDisplayLoading(false);
+      }
     );
 
   }
-
-  
-  
 
   // creating a grid component with the help of a function
   const Grid = ({ item }) => {
@@ -208,18 +208,23 @@ function App() {
     </div>
   </div>
   <div>
-    <div>
-      {displayResults && Object.keys(jsonData).map((category, index) => (
-        <div key={index}>
-          <hr className="line"/>
-          <h1 className="sub-topic">{category}</h1>
-          <hr className="line"/>
-          <GridContainer items={jsonData[category]} />
-        </div>
-      ))}
+      <div>
+        {displayResults && Object.keys(jsonData).map((category, index) => (
+          <div key={index}>
+            <hr className="line"/>
+            <h1 className="sub-topic">{category}</h1>
+            <hr className="line"/>
+            <GridContainer items={jsonData[category]} />
+          </div>
+        ))}
+      </div>
+
+      <div>
+        {displayLoading && <p>Loading</p>} 
+      </div>
+
     </div>
   </div>
-    </div>
   );
 
 }
