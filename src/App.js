@@ -1,6 +1,6 @@
 
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,8 +24,8 @@ function App() {
 
   const [jsonData, setJsonData] = useState("");
   const [displayResults, setDisplayResults] = useState(false);
-  
-  
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -61,10 +61,19 @@ function App() {
         setDisplayResults(true);
         setJsonData(data);
       })
+      .then(() => {
+        // this is where we want to scroll automatically
+        setTimeout(function(){
+          console.log("hello");
+        }, 4000)
+        
+      })
       .catch((error) => console.error(error)
     );
 
   }
+
+  
   
 
   // creating a grid component with the help of a function
@@ -95,11 +104,14 @@ function App() {
   <div className="outer">
     
     <div className="outer-description">
+    <img src = "newspaper.png" alt="Newspaper Icon"></img>
       <h1 className="heading" class="heading">
-        Some Heading
+      MyNewsWire
       </h1>
+      
       <p className="description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Use our product to get customized news within one click! Please select your location and field of interest. Subscribe to our email newsletter for a daily dose of customized news feeds by entering your email. 
+
       </p>
     </div>
 
@@ -191,24 +203,22 @@ function App() {
         </div>
       </div>
       <input className="submitButton" type="submit" value="Submit"/>
-      {displayResults && <p className="scrollPrompt">(Scroll To See Results)</p>}
+      {displayResults && <p className="scrollPrompt">(Scroll Down To See Results)</p>}
       </form>
     </div>
   </div>
   <div>
     <div>
-    {displayResults && Object.keys(jsonData).map((category, index) => (
-      <div key={index}>
-        <hr className="line"/>
-        <h1 className="sub-topic">{category}</h1>
-        <hr className="line"/>
-        <GridContainer items={jsonData[category]} />
-      </div>
-    ))}
+      {displayResults && Object.keys(jsonData).map((category, index) => (
+        <div key={index}>
+          <hr className="line"/>
+          <h1 className="sub-topic">{category}</h1>
+          <hr className="line"/>
+          <GridContainer items={jsonData[category]} />
+        </div>
+      ))}
+    </div>
   </div>
-  </div>
-    
-
     </div>
   );
 

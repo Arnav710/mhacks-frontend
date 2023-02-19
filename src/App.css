@@ -16,7 +16,8 @@
 .outer-description{
     width: 450px;
     text-align: center;
-    margin: 0 auto;   
+    margin: 0 auto; 
+    font-size: 20px;  
 }
 
 .textInput{
@@ -33,7 +34,7 @@
 }
 
 .heading{
-  font-size: 40px;
+  font-size: 70px;
   font-weight: 500;
   word-spacing: 3px;
   line-height: 2em;
@@ -209,7 +210,7 @@ input[type="checkbox"]:disabled + label:before {
 }
 
 .scrollPrompt{
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 40px;
     color: red
 
@@ -219,4 +220,9 @@ input[type="checkbox"]:disabled + label:before {
     font-weight: bold;
     text-transform:capitalize;
     text-align: left;
-}   
+} 
+
+
+img{
+  width: 20%
+}
