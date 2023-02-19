@@ -65,9 +65,6 @@ function App() {
         setDisplayResults(true);
         setJsonData(data);
       })
-      .then(() => {
-        console.log("hello")
-      })
       .catch((error) => {
         console.error(error);
         setDisplayLoading(false);
@@ -204,6 +201,9 @@ function App() {
       </div>
       <input className="submitButton" type="submit" value="Submit"/>
       {displayResults && <p className="scrollPrompt">(Scroll Down To See Results)</p>}
+      <div>
+        {displayLoading && <img src="Fidget-spinner.gif" alt="loading" className="loading"></img>} 
+      </div>
       </form>
     </div>
   </div>
@@ -218,11 +218,6 @@ function App() {
           </div>
         ))}
       </div>
-
-      <div>
-        {displayLoading && <p>Loading</p>} 
-      </div>
-
     </div>
   </div>
   );
