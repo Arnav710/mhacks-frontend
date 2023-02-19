@@ -3,7 +3,6 @@ import "./App.css";
 import { useState } from "react";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import jsonData from './outputData.json';
 
 function App() {
 
@@ -22,9 +21,12 @@ function App() {
   const [science, setScience] = useState(false);
   const [gaming, setGaming] = useState(false);
   const [email, setEmail] = useState("");
+
+  const [jsonData, setJsonData] = useState("");
+  const [displayResults, setDisplayResults] = useState(false);
   
   
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const data = {
@@ -55,8 +57,13 @@ function App() {
 
     fetch("https://hackapi.rooty.dev/generate_feed", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then((data) => {
+        setDisplayResults(true);
+        setJsonData(data);
+      })
+      .catch((error) => console.error(error)
+    );
+
   }
   
 
@@ -64,9 +71,9 @@ function App() {
   const Grid = ({ item }) => {
     return (
       <div className="grid-item"> 
-        <h5>{item.title}</h5>
-        <p>{item.summary}</p>
-        <a href={item.link}>Link</a>
+        <h5 className="article-heading">{item.title}</h5>
+        <p className="article-summary">{item.summary}</p>
+        <a href={item.link} className="articleLink" target="_blank">Link</a>
       </div>
     );
   };
@@ -74,6 +81,7 @@ function App() {
   // creating the grid container having 3 Grid components
   const GridContainer = ({ items }) => {
     return (
+  
       <div className="grid-container">
         {items.map((item, index) => (
           <Grid key={index} item={item} />
@@ -84,15 +92,18 @@ function App() {
 
   return (
   <div>
-    <div class="outer" >
+  <div className="outer">
+    
+    <div className="outer-description">
       <h1 className="heading" class="heading">
         Some Heading
       </h1>
       <p className="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
+    </div>
 
+    <div class="outer-form" >
       <form onSubmit={handleSubmit}>
         
         <div class = "display-10 align-items-center" className="textInput" >
@@ -180,17 +191,23 @@ function App() {
         </div>
       </div>
       <input className="submitButton" type="submit" value="Submit"/>
+      {displayResults && <p className="scrollPrompt">(Scroll To See Results)</p>}
       </form>
     </div>
-
+  </div>
+  <div>
     <div>
-    {Object.keys(jsonData).map((category, index) => (
+    {displayResults && Object.keys(jsonData).map((category, index) => (
       <div key={index}>
+        <hr className="line"/>
         <h1 className="sub-topic">{category}</h1>
+        <hr className="line"/>
         <GridContainer items={jsonData[category]} />
       </div>
     ))}
-    </div>
+  </div>
+  </div>
+    
 
     </div>
   );
